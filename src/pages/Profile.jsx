@@ -4,10 +4,9 @@ import Rootlayout from '../layout/Rootlayout'
 const Profile = () => {
   return (
     <Rootlayout>
-
-    <div>
-      profile
-    </div>
+      <div className="">
+        
+      </div>
     </Rootlayout>
   )
 }
