@@ -1,0 +1,15 @@
+.submit-btn:hover{
+    background-color: #272727 !important; 
+    color: #B19777;
+}
+
+/* .text-input:focus {
+    border-color: #B19777; 
+    box-shadow: 0 0 3px rgba(177, 151, 119, 0.5); 
+    outline: none; 
+  } */
+
+ .background{
+    background: url("../assets/bg.png") no-repeat center center / cover;
+ } 
+  
