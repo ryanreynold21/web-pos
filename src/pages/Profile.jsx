@@ -3,6 +3,7 @@ import Rootlayout from '../layout/Rootlayout'
 import {BiMessageAltMinus} from 'react-icons/bi'
 import {BsTelephoneForward} from 'react-icons/bs'
 import {TbEdit} from 'react-icons/tb'
+import { Link } from 'react-router-dom'
 
 const Profile = () => {
   const [section,setSection] = useState("personal")
@@ -33,7 +34,9 @@ const Profile = () => {
                 <h1 onClick={() => setSection('login')} className={`${section === 'login' ? ('text-blue-600 select-none font-[600] text-[18px] cursor-pointer') : ('text-white font-[600] text-[18px] cursor-pointer')}`}>Login Information</h1>
           </div>
           <div className="absolute right-[100px] top-[-5px]">
-            <button className=' text-black px-4 py-2 rounded-md flex items-center gap-2 bg-cyan-300'> <TbEdit /> Edit Profile</button>
+            <Link to={'/profile/edit'}>
+              <button className=' text-black px-4 py-2 rounded-md flex items-center gap-2 bg-cyan-300'> <TbEdit /> Edit Profile</button>
+            </Link>
           </div>
         </div>
         {/* personal */}

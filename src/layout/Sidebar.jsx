@@ -124,7 +124,9 @@ const Sidebar = () => {
                   <NavLink to={'/profile'}>
                     <li className=" text-white ml-10 mb-3">My Account</li>
                   </NavLink>
-                  <li className=" text-white ml-10 mb-3">Edit</li>
+                  <NavLink to={'/profile/edit'}>
+                    <li className=" text-white ml-10 mb-3">Edit</li>
+                  </NavLink>
                 </ul>
               </div>
         </div>
