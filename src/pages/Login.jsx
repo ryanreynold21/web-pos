@@ -1,4 +1,4 @@
-import { Checkbox, Label, TextInput, Button } from "flowbite-react";
+import { Label, TextInput, Button } from "flowbite-react";
 import React from "react";
 import "./Login.css";
 
