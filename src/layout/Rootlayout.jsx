@@ -6,7 +6,6 @@ const Rootlayout = ({children}) => {
   return (
     <div>
            <Navbar />
-           
            <div className=" flex bg-[#272727]">
            <Sidebar />
              <div className=" bg-stone">
