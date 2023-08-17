@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import UserOverview from './components/UserOverview'
 import EditProfile from './pages/EditProfile'
 import Media from './pages/Media'
+import User from './pages/User'
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
       <Route path='/media' element={ <Media /> } />
       <Route path='/profile/edit' element={ <EditProfile /> } />
       <Route path='/login' element={<Login />} />
-      <Route path='/userOverview' element={<UserOverview />} />
+      <Route path='/user' element={<User />} />
     </Routes>
   )
 }

@@ -4,7 +4,7 @@ import {BsChevronDown,BsShopWindow,BsClipboard} from 'react-icons/bs'
 import {BiUserPlus,BiLogOut} from 'react-icons/bi'
 import {TfiGallery} from 'react-icons/tfi'
 import {FaRegUserCircle} from 'react-icons/fa'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const Sidebar = () => {
   return (
@@ -88,7 +88,9 @@ const Sidebar = () => {
               </div>
               <div className="collapse-content">
                 <ul className="text-[18px]">
-                  <li className=" text-white ml-10 mb-3">OverView</li>
+                  <Link to={'/user'}>
+                    <li className=" text-white ml-10 mb-3">OverView</li>
+                  </Link>
                   <li className=" text-white ml-10 mb-3">Create User</li>
                 </ul>
               </div>

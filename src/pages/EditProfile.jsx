@@ -33,9 +33,9 @@ const EditProfile = () => {
         {/* section */}
         <div className=" w-[900px] my-5 justify-between items-center">
           <div className=" px-5 py-3  border-b border-stone-500 text-white flex gap-20">
-                <h1 onClick={() => setSection('personal')} className= {`${section === 'personal' ? ('text-blue-600 select-none font-[600] text-[18px] cursor-pointer') : ('text-white font-[600] text-[18px] cursor-pointer')}`} >Personal</h1>
-                <h1 onClick={() => setSection('login')} className={`${section === 'login' ? ('text-blue-600 select-none font-[600] text-[18px] cursor-pointer') : ('text-white font-[600] text-[18px] cursor-pointer')}`}>Login Information</h1>
-                <h1 onClick={() => setSection('password')} className={`${section === 'password' ? ('text-blue-600 select-none font-[600] text-[18px] cursor-pointer') : ('text-white font-[600] text-[18px] cursor-pointer')}`}>Password</h1>
+                <h1 onClick={() => setSection('personal')} className= {`${section === 'personal' ? ('text-[#B19777] select-none font-[600] text-[18px] cursor-pointer') : ('text-white font-[600] text-[18px] cursor-pointer')}`} >Personal</h1>
+                <h1 onClick={() => setSection('login')} className={`${section === 'login' ? ('text-[#B19777] select-none font-[600] text-[18px] cursor-pointer') : ('text-white font-[600] text-[18px] cursor-pointer')}`}>Login Information</h1>
+                <h1 onClick={() => setSection('password')} className={`${section === 'password' ? ('text-[#B19777] select-none font-[600] text-[18px] cursor-pointer') : ('text-white font-[600] text-[18px] cursor-pointer')}`}>Password</h1>
           </div>
         </div>
         {/* personal */}
@@ -104,7 +104,7 @@ const EditProfile = () => {
               </div>
             <div className=" flex w-1/2 gap-6 mt-5 items-end justify-end">
               <button className=' text-white border border-stone-400 tracking-wider px-5 py-2 rounded-md'> CANCEL</button>
-              <button className=' text-black px-6 py-2 rounded-md bg-cyan-300'> SAVE</button>
+              <button className=' text-black px-6 py-2 rounded-md bg-[#B19777]'> SAVE</button>
             </div>
           </div>
               </form>
@@ -133,7 +133,7 @@ const EditProfile = () => {
             </div>
             <div className=" flex gap-6 w-1/2 justify-end">
               <button className=' text-white border border-stone-400 tracking-wider px-5 py-2 rounded-md'> CANCEL</button>
-              <button className=' text-black px-6 py-2 rounded-md bg-cyan-300'> SAVE</button>
+              <button className=' text-black px-6 py-2 rounded-md bg-[#B19777]'> SAVE</button>
             </div>
           </div>
             </form>
@@ -170,7 +170,7 @@ const EditProfile = () => {
               </div>
               <div className=" flex gap-6 w-1/2 justify-end">
                 <button className=' text-white border border-stone-400 tracking-wider px-5 py-2 rounded-md'> CANCEL</button>
-                <button className=' text-black px-6 py-2 rounded-md bg-cyan-300'> SAVE</button>
+                <button className=' text-black px-6 py-2 rounded-md bg-[#B19777]'> SAVE</button>
               </div>
             </div>
               </form>

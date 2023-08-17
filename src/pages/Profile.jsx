@@ -30,12 +30,12 @@ const Profile = () => {
         {/* section */}
         <div className=" w-[1000px] my-5 justify-between items-center relative">
           <div className=" px-5 py-3  border-b border-stone-500 text-white flex gap-20">
-                <h1 onClick={() => setSection('personal')} className= {`${section === 'personal' ? ('text-blue-600 select-none font-[600] text-[18px] cursor-pointer') : ('text-white font-[600] text-[18px] cursor-pointer')}`} >Personal</h1>
-                <h1 onClick={() => setSection('login')} className={`${section === 'login' ? ('text-blue-600 select-none font-[600] text-[18px] cursor-pointer') : ('text-white font-[600] text-[18px] cursor-pointer')}`}>Login Information</h1>
+                <h1 onClick={() => setSection('personal')} className= {`${section === 'personal' ? ('text-[#B19777] select-none font-[600] text-[18px] cursor-pointer') : ('text-white font-[600] text-[18px] cursor-pointer')}`} >Personal</h1>
+                <h1 onClick={() => setSection('login')} className={`${section === 'login' ? ('text-[#B19777] select-none font-[600] text-[18px] cursor-pointer') : ('text-white font-[600] text-[18px] cursor-pointer')}`}>Login Information</h1>
           </div>
           <div className="absolute right-[100px] top-[-5px]">
             <Link to={'/profile/edit'}>
-              <button className=' text-black px-4 py-2 rounded-md flex items-center gap-2 bg-cyan-300'> <TbEdit /> Edit Profile</button>
+              <button className=' text-black px-4 py-2 rounded-md flex items-center gap-2 bg-[#B19777]'> <TbEdit /> Edit Profile</button>
             </Link>
           </div>
         </div>

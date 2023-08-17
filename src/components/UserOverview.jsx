@@ -17,7 +17,6 @@ const UserOverview = () => {
   console.log("openModal value:", openModal);
   return (
     <div>
-      <Rootlayout>
         <div className="flex justify-between mx-3 mt-2">
           <div className="">
             <h1 className="text-2xl text-[#B19777]">User</h1>
@@ -111,7 +110,6 @@ const UserOverview = () => {
             </Modal.Footer>
           </Modal>
         </div>
-      </Rootlayout>
     </div>
   );
 };

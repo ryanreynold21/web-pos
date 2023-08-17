@@ -9,6 +9,7 @@ const Rootlayout = ({ children }) => {
       <div className=" flex bg-[#272727]">
         <Sidebar />
         <div className="w-4/5">{children}</div>
+        </div>
     </div>
   );
 };
