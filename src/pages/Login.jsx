@@ -1,6 +1,7 @@
 import { Label, TextInput, Button } from "flowbite-react";
 import React from "react";
 import "./Login.css";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -33,9 +34,11 @@ const Login = () => {
               </div>
               <TextInput id="password1" required type="password" />
             </div>
-            <Button className="bg-[#B19777] submit-btn mt-5" type="submit">
-              Log In
-            </Button>
+            <Link to='/'>
+              <Button className="bg-[#B19777] submit-btn mt-5" type="submit">
+                Log In
+              </Button>
+            </Link>
           </form>
         </div>
       </div>

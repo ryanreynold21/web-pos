@@ -12,12 +12,12 @@ const Sidebar = () => {
       <div className="">
         {/* overview */}
         <div className=" px-5 py-3  border-b border-stone-500">
-              <a href="/" className=" flex items-center mt-2 text-white">
+              <NavLink to="/" className=" flex items-center mt-2 text-white">
                 <span className=" text-2xl mr-2">
                   <BiHomeCircle />
                 </span>
                 <h1 className="text-[18px]">Overview</h1>
-              </a>
+              </NavLink>
         </div>
         {/* sale */}
         <div className="collapse border-b border-stone-500 rounded-none">
@@ -95,12 +95,12 @@ const Sidebar = () => {
         </div>
         {/* media */}
         <div className=" px-5 py-3  border-b border-stone-500">
-              <a href="/" className=" flex items-center mt-2 text-white">
+              <NavLink to={"/media"} className=" flex items-center mt-2 text-white">
                 <span className=" text-xl mr-2">
                   <TfiGallery />
                 </span>
                 <h1 className="text-[18px]">Media</h1>
-              </a>
+              </NavLink>
         </div>
         {/* profile */}
         <div className="collapse border-b border-stone-500 rounded-none">
@@ -124,7 +124,9 @@ const Sidebar = () => {
                   <NavLink to={'/profile'}>
                     <li className=" text-white ml-10 mb-3">My Account</li>
                   </NavLink>
-                  <li className=" text-white ml-10 mb-3">Edit</li>
+                  <NavLink to={'/profile/edit'}>
+                    <li className=" text-white ml-10 mb-3">Edit</li>
+                  </NavLink>
                 </ul>
               </div>
         </div>
