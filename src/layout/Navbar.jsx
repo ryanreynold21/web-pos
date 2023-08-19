@@ -1,6 +1,7 @@
 import React from 'react'
 import {BsBell,BsMoonStars} from 'react-icons/bs'
 import {CgProfile} from 'react-icons/cg'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -12,8 +13,9 @@ const Navbar = () => {
           </div>
           <div className=" text-white flex gap-6 text-2xl">
             <div> <BsBell /> </div>
-            <div> <BsMoonStars /> </div>
+            <Link to={'/profile'}>
             <div> <CgProfile /> </div>
+            </Link>
          </div>
         </div>
       </div>

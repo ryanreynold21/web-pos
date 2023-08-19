@@ -35,7 +35,7 @@ const Profile = () => {
           </div>
           <div className="absolute right-[100px] top-[-5px]">
             <Link to={'/profile/edit'}>
-              <button className=' text-black px-4 py-2 rounded-md flex items-center gap-2 bg-[#B19777]'> <TbEdit /> Edit Profile</button>
+              <button className=' text-white px-4 py-2 rounded-md flex items-center gap-2 bg-[#B19777]'> <TbEdit /> Edit Profile</button>
             </Link>
           </div>
         </div>

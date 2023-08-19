@@ -8,16 +8,17 @@ import UserOverview from './components/UserOverview'
 import EditProfile from './pages/EditProfile'
 import Media from './pages/Media'
 import User from './pages/User'
+import Guard from './components/Guard'
 
 const App = () => {
   return (
     <Routes>
-      <Route path='/' element={ <Home /> } />
-      <Route path='/profile' element={ <Profile /> } />
-      <Route path='/media' element={ <Media /> } />
-      <Route path='/profile/edit' element={ <EditProfile /> } />
       <Route path='/login' element={<Login />} />
-      <Route path='/user' element={<User />} />
+      <Route path='/' element={ <Guard> <Home /> </Guard>  } />
+      <Route path='/profile' element={ <Guard> <Profile /> </Guard> } />
+      <Route path='/media' element={ <Guard> <Media /> </Guard> } />
+      <Route path='/profile/edit' element={ <Guard> <EditProfile /> </Guard> } />
+      <Route path='/user' element={<Guard> <User /> </Guard>} />
     </Routes>
   )
 }
