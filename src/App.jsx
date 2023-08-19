@@ -9,6 +9,7 @@ import EditProfile from './pages/EditProfile'
 import Media from './pages/Media'
 import User from './pages/User'
 import Guard from './components/Guard'
+import CreateUser from './pages/CreateUser'
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
       <Route path='/media' element={ <Guard> <Media /> </Guard> } />
       <Route path='/profile/edit' element={ <Guard> <EditProfile /> </Guard> } />
       <Route path='/user' element={<Guard> <User /> </Guard>} />
+      <Route path='/user/create' element={<Guard> <CreateUser /> </Guard>} />
     </Routes>
   )
 }
