@@ -5,6 +5,7 @@ import { BiUserPlus, BiLogOut } from "react-icons/bi";
 import { TfiGallery } from "react-icons/tfi";
 import { FaRegUserCircle } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
+import Logout from "../components/Logout";
 
 const Sidebar = () => {
   return (
@@ -136,12 +137,7 @@ const Sidebar = () => {
         </div>
         {/* logout */}
         <div className=" px-5 py-3  border-b border-stone-500">
-          <a href="/" className=" flex items-center mt-2 text-white">
-            <span className=" text-2xl mr-2">
-              <BiLogOut />
-            </span>
-            <h1 className="text-[18px]">Logout</h1>
-          </a>
+         <Logout />
         </div>
       </div>
     </div>
