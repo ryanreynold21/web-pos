@@ -3,5 +3,19 @@
 @tailwind utilities;
 
 .active {
-  color:  #B19777;;
+  color: #B19777;
+  ;
+}
+
+.button {
+  transition: all;
+  background-color: #B19777;
+  color: white;
+  border: 1px solid #B19777;
+}
+
+.button:hover {
+  background-color: #323232;
+  color: #B19777;
+  border: 1px solid #B19777;
 }

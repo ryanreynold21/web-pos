@@ -4,6 +4,7 @@ import InfoTab from "./InfoTab";
 import { Card, Modal } from "flowbite-react";
 import Admin from "../assets/images/admin.jpg";
 import "./UserOverview.css";
+import { Link } from "react-router-dom";
 
 const UserOverview = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -17,20 +18,20 @@ const UserOverview = () => {
   console.log("openModal value:", openModal);
   return (
     <div>
-        <div className="flex justify-between mx-3 mt-2">
+        <div className="flex justify-between mx-5 mt-5">
           <div className="">
             <h1 className="text-2xl text-[#B19777]">User</h1>
-            <p>User/Overview</p>
+            <p className="text-white">User / Overview</p>
           </div>
-          <div className="">
-            <button className=" bg-[#B19777] py-2 px-4 rounded-lg text-white hover:bg-[#323232] hover:text-[#B19777]">
+          <Link to={'/user/create'}>
+            <button className=" py-2 px-4 rounded-lg button">
               Create User
             </button>
-          </div>
+          </Link>
         </div>
         <div className="grid grid-cols-3 gap-5 mx-5 mt-5 ">
           <Card
-            className="col-span-1 bg-[#323232] border border-[#B19777] cursor-pointer"
+            className="col-span-1 bg-[#323232] dark:bg-[#323232] border border-[#B19777] dark:border-[#B19777] cursor-pointer"
             onClick={toggleModal}
           >
             <div className="flex flex-col items-center pb-10">
@@ -49,7 +50,7 @@ const UserOverview = () => {
             </div>
           </Card>
           <Card
-            className="col-span-1 bg-[#323232] border border-[#B19777] cursor-pointer"
+            className="col-span-1 bg-[#323232] dark:bg-[#323232] border border-[#B19777] dark:border-[#B19777] cursor-pointer"
             onClick={toggleModal}
           >
             <div className="flex flex-col items-center pb-10">
@@ -68,7 +69,7 @@ const UserOverview = () => {
             </div>
           </Card>
           <Card
-            className="col-span-1 bg-[#323232] border border-[#B19777] cursor-pointer"
+            className="col-span-1 bg-[#323232] dark:bg-[#323232] border border-[#B19777] dark:border-[#B19777] cursor-pointer"
             onClick={toggleModal}
           >
             <div className="flex flex-col items-center pb-10">
@@ -103,11 +104,6 @@ const UserOverview = () => {
             <Modal.Body style={{ backgroundColor: "#323232" }}>
               <InfoTab onTabClick={handleTabClick} />
             </Modal.Body>
-            <Modal.Footer style={{ backgroundColor: "#323232" }}>
-              <button className=" bg-[#B19777] py-2 px-4 rounded-lg text-white hover:bg-[#272727] hover:text-[#B19777]">
-                Update User
-              </button>
-            </Modal.Footer>
           </Modal>
         </div>
     </div>
