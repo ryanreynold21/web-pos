@@ -14,17 +14,19 @@ const CreateUser = () => {
     <Rootlayout>
       <div className="flex justify-between mx-5 mt-5">
         <div className="">
-          <h1 className="text-2xl text-[#B19777]">User</h1>
-          <p className="text-white">User / Create</p>
+          <h1 className="text-2xl text-[#B19777]">Users</h1>
+          <p className="text-white">Users / Create</p>
         </div>
-        <Link to={"/user"}>
+        <Link to={"/users"}>
           <button className=" py-2 px-4 rounded-lg button">Users</button>
         </Link>
       </div>
       <div className="mt-5 flex gap-16 items-center">
         {section === "personal" && (
           <form
-            onSubmit={() => setSection("login")}
+            onSubmit={
+              () => setSection("login")
+            }
             action=""
             className="w-[550px] bg-[#323232] rounded-lg ml-5 flex flex-col"
           >
@@ -111,7 +113,6 @@ const CreateUser = () => {
               </div>
             </div>
             <button
-              onClick={() => setSection("login")}
               type="submit"
               className=" self-end py-2 px-4 rounded-lg button w-24 m-5"
             >
@@ -122,7 +123,11 @@ const CreateUser = () => {
 
         {section === "login" && (
           <div className="flex flex-col">
-            <form action="" className="w-[550px] bg-[#323232] rounded-lg ml-5">
+            <form
+              onSubmit={() => setSection("photo")}
+              action=""
+              className="w-[550px] bg-[#323232] rounded-lg ml-5 flex flex-col"
+            >
               <div className=" text-white flex flex-col gap-8 p-5">
                 <div className=" flex justify-between">
                   <span className=" text-[17px] text-stone-300 font-bold">
@@ -177,13 +182,13 @@ const CreateUser = () => {
                   />
                 </div>
               </div>
+              <button
+                type="submit"
+                className=" self-end py-2 px-4 rounded-lg button w-24 m-5"
+              >
+                Next
+              </button>
             </form>
-            <button
-              onClick={() => setSection("photo")}
-              className=" self-end py-2 px-4 rounded-lg button w-24 mt-5"
-            >
-              Next
-            </button>
           </div>
         )}
         {section === "photo" && (
@@ -196,14 +201,14 @@ const CreateUser = () => {
                   <RiEdit2Fill />
                 </button>
               </div>
-              <div className="">
-                <button className=" text-white border border-stone-400 tracking-wider px-5 py-2 rounded-lg">
-                  Clear Photo
-                </button>
-              </div>
-              <Link to={"/user"}>
-                <button className=" self-center py-2 px-4 rounded-lg button w-24 mt-5">
-                  Submit
+            </div>
+            <div className="p-5 flex justify-between">
+              <button className=" border border-stone-400 py-2 px-4 rounded-lg mt-5">
+                Clear Photo
+              </button>
+              <Link to={"/users"}>
+                <button className=" py-2 px-4 rounded-lg button mt-5">
+                  Create User
                 </button>
               </Link>
             </div>
@@ -216,6 +221,7 @@ const CreateUser = () => {
                 section === "personal"
                   ? "border-[#B19777] text-[#B19777]"
                   : "border-white text-white"
+                
               }`}
             >
               1

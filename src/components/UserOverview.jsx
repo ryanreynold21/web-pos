@@ -20,10 +20,10 @@ const UserOverview = () => {
     <div>
         <div className="flex justify-between mx-5 mt-5">
           <div className="">
-            <h1 className="text-2xl text-[#B19777]">User</h1>
-            <p className="text-white">User / Overview</p>
+            <h1 className="text-2xl text-[#B19777]">Users</h1>
+            <p className="text-white">Users / Overview</p>
           </div>
-          <Link to={'/user/create'}>
+          <Link to={'/users/create'}>
             <button className=" py-2 px-4 rounded-lg button">
               Create User
             </button>
