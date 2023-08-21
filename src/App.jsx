@@ -10,6 +10,8 @@ import Media from './pages/Media'
 import User from './pages/User'
 import Guard from './components/Guard'
 import CreateUser from './pages/CreateUser'
+import Inventory from './pages/Inventory'
+import ProductDetails from './components/products/ProductDetails'
 
 const App = () => {
   return (
@@ -21,6 +23,8 @@ const App = () => {
       <Route path='/profile/edit' element={ <Guard> <EditProfile /> </Guard> } />
       <Route path='/user' element={<Guard> <User /> </Guard>} />
       <Route path='/user/create' element={<Guard> <CreateUser /> </Guard>} />
+      <Route path='/product' element={<Guard> <Inventory /> </Guard>} />
+      <Route path='/product/details' element={<Guard> <ProductDetails /> </Guard>} />
     </Routes>
   )
 }
