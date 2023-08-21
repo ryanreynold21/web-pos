@@ -67,6 +67,10 @@ const Sidebar = () => {
               <Link to={"/products/create"}>
                 <li className=" text-white ml-10 mb-3">Add Product</li>
               </Link>
+              <NavLink to={'/product'}>
+                <li className=" text-white ml-10 mb-3">Products</li>
+              </NavLink>
+              <li className=" text-white ml-10 mb-3">Add Product</li>
               <li className=" text-white ml-10 mb-3">Stack Control</li>
               <li className=" text-white ml-10 mb-3">Manage Brands</li>
             </ul>

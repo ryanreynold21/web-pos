@@ -20,8 +20,31 @@ export const authApi = createApi({
                 headers : {authorization:`Bearer ${token}`}
             }),
             invalidatesTags : ['authapi']
-        })
-    })
+        }),
+        getPhoto : build.query({
+            query : ({token}) => ({
+                url : 'photos',
+                headers:{authorization:`Bearer ${token}`}
+            }),
+            providesTags : ['authapi']
+        }),
+        storePhoto : build.mutation({
+            query : (photos,token) => ({
+                url : 'photos',
+                method : 'POST',
+                body : photos,
+                headers:{authorization:`Bearer ${token}`}
+            }),
+            invalidatesTags : ['authapi']
+        }),
+        getProduct : build.query({
+            query : ({token}) => ({
+                url : 'product',
+                headers:{authorization:`Bearer ${token}`}
+            }),
+            providesTags : ['authapi']
+        }),
+    }),
 })
 
-export const {useLoginMutation,useLogoutMutation} = authApi;
+export const {useLoginMutation,useLogoutMutation,useGetPhotoQuery,useStorePhotoMutation,useGetProductQuery} = authApi;
