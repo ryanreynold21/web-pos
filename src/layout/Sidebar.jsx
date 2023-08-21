@@ -64,7 +64,9 @@ const Sidebar = () => {
           <div className="collapse-content">
             <ul className="text-[18px]">
               <li className=" text-white ml-10 mb-3">Products</li>
-              <li className=" text-white ml-10 mb-3">Add Product</li>
+              <Link to={"/products/create"}>
+                <li className=" text-white ml-10 mb-3">Add Product</li>
+              </Link>
               <li className=" text-white ml-10 mb-3">Stack Control</li>
               <li className=" text-white ml-10 mb-3">Manage Brands</li>
             </ul>
@@ -89,10 +91,10 @@ const Sidebar = () => {
           </div>
           <div className="collapse-content">
             <ul className="text-[18px]">
-              <Link to={"/user"}>
+              <Link to={"/users"}>
                 <li className=" text-white ml-10 mb-3">OverView</li>
               </Link>
-              <Link to={"/user/create"}>
+              <Link to={"/users/create"}>
                 <li className=" text-white ml-10 mb-3">Create User</li>
               </Link>
             </ul>
@@ -137,7 +139,7 @@ const Sidebar = () => {
         </div>
         {/* logout */}
         <div className=" px-5 py-3  border-b border-stone-500">
-         <Logout />
+          <Logout />
         </div>
       </div>
     </div>
