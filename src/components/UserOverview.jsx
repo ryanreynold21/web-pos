@@ -9,13 +9,11 @@ import { Link } from "react-router-dom";
 const UserOverview = () => {
   const [openModal, setOpenModal] = useState(false);
   const toggleModal = () => {
-    console.log("Toggling modal");
     setOpenModal(!openModal);
   };
   const handleTabClick = (event) => {
     event.stopPropagation();
   };
-  console.log("openModal value:", openModal);
   return (
     <div>
         <div className="flex justify-between mx-5 mt-5">

@@ -28,7 +28,7 @@ const AddProduct = () => {
             <h1 className="text-2xl text-[#B19777]">Products</h1>
             <p className="text-white">Products / Create</p>
           </div>
-          <Link to={"/products"}>
+          <Link to={"/product"}>
             <button className=" py-2 px-4 rounded-lg button">Products</button>
           </Link>
         </div>

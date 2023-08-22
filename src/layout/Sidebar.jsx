@@ -63,15 +63,15 @@ const Sidebar = () => {
           </div>
           <div className="collapse-content">
             <ul className="text-[18px]">
-              <li className=" text-white ml-10 mb-3">Products</li>
-              <Link to={"/products/create"}>
-                <li className=" text-white ml-10 mb-3">Add Product</li>
-              </Link>
               <NavLink to={'/product'}>
                 <li className=" text-white ml-10 mb-3">Products</li>
               </NavLink>
-              <li className=" text-white ml-10 mb-3">Add Product</li>
+              <NavLink to={"/products/create"}>
+                <li className=" text-white ml-10 mb-3">Add Product</li>
+              </NavLink>
+              <NavLink to={'/stock'}>
               <li className=" text-white ml-10 mb-3">Stack Control</li>
+               </NavLink>
               <li className=" text-white ml-10 mb-3">Manage Brands</li>
             </ul>
           </div>

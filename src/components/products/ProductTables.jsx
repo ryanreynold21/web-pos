@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom'
 const ProductTables = () => {
     const token = localStorage.getItem("token")
     const data = useGetProductQuery({token})
-    console.log(data)
   return (
     <div>
         <div className="overflow-x-auto">

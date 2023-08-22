@@ -2,33 +2,33 @@ import React, { useState } from 'react'
 import Rootlayout from '../layout/Rootlayout'
 import {AiOutlinePlus,AiOutlineOrderedList} from 'react-icons/ai'
 import {BsGrid} from 'react-icons/bs'
-import ProductTables from '../components/products/ProductTables'
-import ProductCard from '../components/products/ProductCard'
 import { Link } from 'react-router-dom'
+import StockTable from '../components/stock/StockTable'
+import StockCard from '../components/stock/StockCard'
+import AddStock from '../components/stock/AddStock'
 
 
-const Inventory = () => {
-  const [view,setView] = useState("list")
+const Stock = () => {
+    const [view,setView] = useState('list')
+    const [showSidebar,setShowSideBar] = useState(false)
   return (
     <Rootlayout>
-      <div className=" mx-10 my-5">
+      {showSidebar && <AddStock showSidebar={showSidebar} setShowSideBar={setShowSideBar} /> }
+        <div className=" mx-10 my-5">
         <div className=" flex justify-between">
           <div className="">
-            <h1 className=" text-[20px] font-[500] text-white">Product</h1>
-            <p className=' text-gray-500'>Inventory/products</p>
+            <h1 className=" text-[20px] font-[500] text-white">Stock Control</h1>
+            <p className=' text-gray-500'>Inventory/Stock Control</p>
           </div>
           <div className=" flex gap-3">
-            <Link to={'/'}>
-              <button className=' px-4 py-2 rounded-lg text-white border border-[#FFFFFF] hover:bg-[#B19777]'> Go To Shop</button>
-            </Link>
-            <Link to={'/products/create'}>
-              <button className=' px-4 py-2 rounded-lg flex items-center gap-2 button'> <AiOutlinePlus />Add Product</button>
+            <Link to={''}>
+              <button onClick={() => setShowSideBar(true)} className=' px-4 py-2 rounded-lg flex items-center gap-2 button'> <AiOutlinePlus />Add Stock</button>
             </Link>
           </div>
         </div>
           {/* product overview */}
         <div className=" my-5">
-          <h1 className='text-[21px] font-[500] text-white'>Products Overview</h1>
+          <h1 className='text-[21px] font-[500] text-white'>Stock Overview</h1>
           {/* search */}
           <div className="flex justify-between">
           <div class="relative my-3">
@@ -44,7 +44,7 @@ const Inventory = () => {
               <button onClick={() => setView('grid')} className={`${view === 'grid' ? 'border border-[#B19777] text-[#B19777] p-2 mr-5' : 'border border-white p-2 mr-5'}`}> <BsGrid /> </button>
             </div>
           </div>
-          {view === 'list' ? ( <ProductTables /> ) : ( <ProductCard />)}
+          {view === 'list' ? ( <StockTable /> ) : ( <StockCard />)}
          
         </div>
       </div>
@@ -52,4 +52,4 @@ const Inventory = () => {
   )
 }
 
-export default Inventory
+export default Stock
