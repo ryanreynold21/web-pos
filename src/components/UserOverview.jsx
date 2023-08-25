@@ -5,8 +5,12 @@ import { Card, Modal } from "flowbite-react";
 import Admin from "../assets/images/admin.jpg";
 import "./UserOverview.css";
 import { Link } from "react-router-dom";
+import { useGetUserQuery } from "../services/authApi";
 
 const UserOverview = () => {
+  const token = localStorage.getItem("token")
+  const {data} = useGetUserQuery({token})
+  console.log(data)
   const [openModal, setOpenModal] = useState(false);
   const toggleModal = () => {
     setOpenModal(!openModal);
@@ -32,59 +36,27 @@ const UserOverview = () => {
             className="col-span-1 bg-[#323232] dark:bg-[#323232] border border-[#B19777] dark:border-[#B19777] cursor-pointer"
             onClick={toggleModal}
           >
-            <div className="flex flex-col items-center pb-10">
-              <img
-                src={Admin}
-                alt="Bonnie image"
-                className="mb-3 rounded-full shadow-lg"
-                height="96"
-                width="96"
-              />
-              <h5 className="mb-1 text-xl font-medium text-[#B19777]">
-                Vanny Taylor
-              </h5>
-              <span className="text-sm text-gray-300 mb-5">Admin</span>
-              <span className="text-sm text-gray-300 ">example@gmail.com</span>
-            </div>
+           {data?.data?.map(user => {
+            return(
+
+              <div className="flex flex-col items-center pb-10">
+             <img
+               src={Admin}
+               alt="Bonnie image"
+               className="mb-3 rounded-full shadow-lg"
+               height="96"
+               width="96"
+               />
+             <h5 className="mb-1 text-xl font-medium text-[#B19777]">
+               {user.name}
+             </h5>
+             <span className="text-sm text-gray-300 mb-5">Admin</span>
+             <span className="text-sm text-gray-300 ">example@gmail.com</span>
+           </div>
+               )
+           })}
           </Card>
-          <Card
-            className="col-span-1 bg-[#323232] dark:bg-[#323232] border border-[#B19777] dark:border-[#B19777] cursor-pointer"
-            onClick={toggleModal}
-          >
-            <div className="flex flex-col items-center pb-10">
-              <img
-                src={Admin}
-                alt="Bonnie image"
-                className="mb-3 rounded-full shadow-lg"
-                height="96"
-                width="96"
-              />
-              <h5 className="mb-1 text-xl font-medium text-[#B19777]">
-                Vanny Taylor
-              </h5>
-              <span className="text-sm text-gray-300 mb-5">Admin</span>
-              <span className="text-sm text-gray-300 ">example@gmail.com</span>
-            </div>
-          </Card>
-          <Card
-            className="col-span-1 bg-[#323232] dark:bg-[#323232] border border-[#B19777] dark:border-[#B19777] cursor-pointer"
-            onClick={toggleModal}
-          >
-            <div className="flex flex-col items-center pb-10">
-              <img
-                src={Admin}
-                alt="Bonnie image"
-                className="mb-3 rounded-full shadow-lg"
-                height="96"
-                width="96"
-              />
-              <h5 className="mb-1 text-xl font-medium text-[#B19777]">
-                Vanny Taylor
-              </h5>
-              <span className="text-sm text-gray-300 mb-5">Admin</span>
-              <span className="text-sm text-gray-300 ">example@gmail.com</span>
-            </div>
-          </Card>
+
           <Modal show={openModal} onClose={toggleModal}>
             <Modal.Header style={{ backgroundColor: "#323232" }}>
               <div className="flex items-center gap-5">

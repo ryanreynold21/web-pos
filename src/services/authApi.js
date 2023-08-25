@@ -22,15 +22,15 @@ export const authApi = createApi({
             invalidatesTags : ['authapi']
         }),
         getPhoto : build.query({
-            query : ({token}) => ({
-                url : 'photos',
+            query : (token) => ({
+                url : 'photo',
                 headers:{authorization:`Bearer ${token}`}
             }),
             providesTags : ['authapi']
         }),
         storePhoto : build.mutation({
-            query : (photos,token) => ({
-                url : 'photos',
+            query : ({photos,token}) => ({
+                url : 'photo',
                 method : 'POST',
                 body : photos,
                 headers:{authorization:`Bearer ${token}`}
@@ -44,7 +44,29 @@ export const authApi = createApi({
             }),
             providesTags : ['authapi']
         }),
+        createUser : build.mutation({
+            query : ({userData,token}) => ({
+                url : 'user/register',
+                method : 'POST',
+                body : userData,
+                headers:{authorization:`Bearer ${token}`}
+            }),
+            invalidatesTags : ['authapi']
+        }),
+        getUser : build.query({
+            query : ({token}) => ({
+                url : 'user',
+                headers:{authorization:`Bearer ${token}`}
+            }),
+            providesTags : ['authapi']
+        }),
     }),
 })
 
-export const {useLoginMutation,useLogoutMutation,useGetPhotoQuery,useStorePhotoMutation,useGetProductQuery} = authApi;
+export const {useLoginMutation,
+                useLogoutMutation,
+                useGetPhotoQuery,
+                useStorePhotoMutation,
+                useGetProductQuery,
+                useCreateUserMutation,
+                useGetUserQuery} = authApi;

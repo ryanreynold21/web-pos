@@ -8,27 +8,26 @@ const Media = () => {
   const token = localStorage.getItem("token")
   const fileRef = useRef(null);
   const [storePhoto] = useStorePhotoMutation()
-  const {data} = useGetPhotoQuery({token})
-  
+  const [page, setPage] = useState(1); // Current page
+  const { data, refetch } = useGetPhotoQuery({ token, page });
+console.log(data)  
   const handleFileChange = async(e) => {
-    const selectedFile = e.target.files[0];
-    const Url = URL.createObjectURL(selectedFile);
-    const photos = {url:Url,name:selectedFile.name,extension:selectedFile.type}
-    console.log(photos)
-    const data = await storePhoto(photos,token);
-    console.log(data)
-    // const headers = {
-    //   'Authorization': `Bearer ${token}`
-    // }
-    // const data = await axios.post('https://f.mmsdev.site/api/v1/photos', photos,{headers})
-    // console.log(data)
-  };
+    const selectedFile = e.target.files;
+    let photos = new FormData();
+    for(let i = 0; i < selectedFile.length ;i++){
+      photos.append("photos[]",selectedFile[i],selectedFile[i].name)
+    }
+    const data = await storePhoto({photos,token});
+    };
   
   const handleUpload = async() => {
     fileRef.current.click();
   };
   
-
+  const handlePageChange = (newPage) => {
+    setPage(newPage);
+    refetch({ page: newPage }); // Fetch data for the new page
+  };
 
   return (
     <Rootlayout>
@@ -48,12 +47,23 @@ const Media = () => {
         <div className=" mt-12">
          <h1 className=' text-[20px] font-[500] text-stone-400 mb-10'>Uploaded Photo</h1>
          <div className=" grid grid-cols-5 gap-5 flex-wrap">
-         {data && data.data.map((photo) => (
-             <img key={photo.id} className='w-[200px]' src={photo?.url} alt="" />
-          ))}
-          
-          
+            {data?.data.map(image => <img className=' h-[200px] w-[200px]' src={image.url} alt="" /> )}
          </div>
+          {/* Pagination buttons */}
+          <div className="mt-5 flex justify-center">
+            {data?.first && page > 1 && (
+              <button onClick={() => handlePageChange(1)}>First</button>
+            )}
+            {data?.prev && (
+              <button onClick={() => handlePageChange(page - 1)}>Previous</button>
+            )}
+            {data?.next && (
+              <button onClick={() => handlePageChange(page + 1)}>Next</button>
+            )}
+            {data?.last && page < data.last && (
+              <button onClick={() => handlePageChange(data.last)}>Last</button>
+            )}
+          </div>
         </div>
      </div>
     </Rootlayout>

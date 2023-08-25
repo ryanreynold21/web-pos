@@ -8,7 +8,7 @@ const AddStock = ({setShowSideBar,showSideBar}) => {
       initial={{x:'350px'}}
       animate={{x:0}}
       exit={{ x: "350px" }}
-      className=" fixed right-0 z-40 h-screen w-[300px] bg-[#323232] shadow-2xl">
+      className=" fixed right-0 z-40 w-[300px] bg-[#323232] shadow-2xl">
         <div className=" px-10 py-6 flex flex-col justify-between gap-[380px]">
             <div className="">    
                 <h1 className=' text-white font-[600] text-[20px] mb-5'>Add Stock</h1>

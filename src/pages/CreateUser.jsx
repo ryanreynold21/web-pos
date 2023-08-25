@@ -3,13 +3,34 @@ import Rootlayout from "../layout/Rootlayout";
 import { Link } from "react-router-dom";
 import { BsPersonBoundingBox } from "react-icons/bs";
 import { RiEdit2Fill } from "react-icons/ri";
+import { useCreateUserMutation, useGetPhotoQuery } from "../services/authApi";
+import ModalPhoto from "../components/ModalPhoto";
 
 const CreateUser = () => {
+  const [showPhotoModal,setShowPhotoModal] = useState(false)
   const [section, setSection] = useState("personal");
   const [selectedGenders, setSelectedGenders] = useState([]);
+  const [name,setName] = useState('a');
+  const [phone_number,setPhone_number] = useState('a');
+  const [date_of_birth,setDateOfBirth] = useState('a')
+  const [gender,setGender] = useState('a')
+  const [position,setPosition] = useState('a');
+  const [address,setAddress] = useState('a');
+  const [email,setEmail] = useState('a')
+  const [password,setPassword] = useState('a');
+  const [password_confirmation,setPassword_confirmation] = useState('a');
+  const [createUser] = useCreateUserMutation()
+  const token = localStorage.getItem("token")
+
   const handleCheckboxChange = (value) => {
     setSelectedGenders(value);
   };
+
+  const handleSubmit = async(e) => {
+    e.preventDefault()
+    const userData = {name,phone_number,date_of_birth,gender,position,address,email,password,password_confirmation}
+    const data = await createUser(userData,token)
+  }
   return (
     <Rootlayout>
       <div className="flex justify-between mx-5 mt-5">
@@ -21,7 +42,7 @@ const CreateUser = () => {
           <button className=" py-2 px-4 rounded-lg button">Users</button>
         </Link>
       </div>
-      <div className="mt-5 flex gap-16 items-center">
+      <div onSubmit={handleSubmit} className="mt-5 flex gap-16 items-center">
         {section === "personal" && (
           <form
             onSubmit={
@@ -37,8 +58,8 @@ const CreateUser = () => {
                 </span>
                 <input
                   required
-                  //   value={}
-                  //   onChange={}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                   placeholder="Name"
                   type="text"
                   className="mt-1 block w-2/3 p-1 bg-[#34353A] border border-slate-500 text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-[#B19777] text-[#B19777] text-[17px] placeholder:text-[17px]"
@@ -50,8 +71,8 @@ const CreateUser = () => {
                 </span>
                 <input
                   required
-                  //   value={}
-                  //   onChange={}
+                  value={phone_number}
+                  onChange={(e) => setPhone_number(e.target.value)}
                   placeholder="Phone"
                   type="text"
                   className="mt-1 block w-2/3 p-1 bg-[#34353A] border border-slate-500 text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-[#B19777] text-[#B19777] text-[17px] placeholder:text-[17px]"
@@ -63,8 +84,8 @@ const CreateUser = () => {
                 </span>
                 <input
                   required
-                  //   value={}
-                  //   onChange={}
+                  value={date_of_birth}
+                  onChange={(e) => setDateOfBirth(e.target.value)}
                   placeholder="date of birth"
                   type="date"
                   className="mt-1 block w-2/3 p-1 bg-[#34353A] border border-slate-500 text-sm shadow-sm text-slate-400 focus:outline-none focus:border-[#B19777] text-[17px] placeholder:text-[17px]"
@@ -101,8 +122,8 @@ const CreateUser = () => {
                 </span>
                 <textarea
                   required
-                  //    onChange={(e) => setMessage(e.target.value)}
-                  //    value={message}
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
                   name=""
                   placeholder="Address"
                   className="mt-1 block w-2/3 p-4 bg-[#34353A] border border-slate-500 text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-[#B19777] text-[#B19777] text-[17px] placeholder:text-[17px]"
@@ -134,6 +155,8 @@ const CreateUser = () => {
                     Position
                   </span>
                   <select
+                  value={position}
+                  onChange={(e) => setPosition(e.target.value)}
                     className="mt-1 block w-2/3 p-1 bg-[#34353A] border border-slate-500 text-sm shadow-sm text-slate-400 focus:outline-none focus:border-[#B19777] text-[17px] placeholder:text-[17px]"
                     name="position"
                     id=""
@@ -148,8 +171,8 @@ const CreateUser = () => {
                   </span>
                   <input
                     required
-                    //   value={}
-                    //   onChange={}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email"
                     type="text"
                     className="mt-1 block w-2/3 p-1 bg-[#34353A] border border-slate-500 text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-[#B19777] text-[#B19777] text-[17px] placeholder:text-[17px]"
@@ -161,8 +184,8 @@ const CreateUser = () => {
                   </span>
                   <input
                     required
-                    //   value={}
-                    //   onChange={}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     placeholder=""
                     type="password"
                     className="mt-1 block w-2/3 p-1 bg-[#34353A] border border-slate-500 text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-[#B19777] text-[#B19777] text-[17px] placeholder:text-[17px]"
@@ -174,8 +197,8 @@ const CreateUser = () => {
                   </span>
                   <input
                     required
-                    //   value={}
-                    //   onChange={}
+                    value={password_confirmation}
+                    onChange={(e) => setPassword_confirmation(e.target.value)}
                     placeholder=""
                     type="password"
                     className="mt-1 block w-2/3 p-1 bg-[#34353A] border border-slate-500 text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-[#B19777] text-[#B19777] text-[17px] placeholder:text-[17px]"
@@ -193,7 +216,8 @@ const CreateUser = () => {
         )}
         {section === "photo" && (
           <div className="w-[550px] bg-[#323232] rounded-lg ml-5 ">
-            <div className="flex flex-col items-center p-5">
+            {showPhotoModal ? (<ModalPhoto setShowPhotoModal={setShowPhotoModal} showPhotoModal={showPhotoModal} />) : '' }
+            <div onClick={() => setShowPhotoModal(!showPhotoModal)} className="flex flex-col items-center p-5">
               <h4 className="text-lg text-white mb-6">Upload Photo</h4>
               <div className="mb-6 relative w-[180px] h-[180px] rounded-full border-2 border-dashed border-[#B19777] bg-[#272727] flex justify-center items-center">
                 <BsPersonBoundingBox className="text-6xl" />
@@ -206,11 +230,6 @@ const CreateUser = () => {
               <button className=" border border-stone-400 py-2 px-4 rounded-lg mt-5">
                 Clear Photo
               </button>
-              <Link to={"/users"}>
-                <button className=" py-2 px-4 rounded-lg button mt-5">
-                  Create User
-                </button>
-              </Link>
             </div>
           </div>
         )}
@@ -274,6 +293,11 @@ const CreateUser = () => {
             </p>
           </div>
         </div>
+        {section === 'phopto' && (
+          <button onClick={handleSubmit} className=" py-2 px-4 rounded-lg button mt-5">
+            Create User
+                </button>
+                  )}
       </div>
     </Rootlayout>
   );

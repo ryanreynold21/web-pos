@@ -6,10 +6,12 @@ import { TfiGallery } from "react-icons/tfi";
 import { FaRegUserCircle } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import Logout from "../components/Logout";
+import { Navbar } from "flowbite-react";
 
 const Sidebar = () => {
   return (
     <div className=" inline-block w-1/5 bg-[#323232] h-screen overflow-auto">
+      {/* <Navbar /> */}
       <div className="">
         {/* overview */}
         <div className=" px-5 py-3  border-b border-stone-500">
