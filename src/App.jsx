@@ -15,6 +15,7 @@ import Inventory from './pages/Inventory'
 import ProductDetails from './components/products/ProductDetails'
 import Stock from './pages/Stock'
 import Cashier from './pages/Cashier'
+import Checkout from './pages/Checkout'
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
       <Route path='/products/details' element={<Guard> <ProductDetails /> </Guard>} />
       <Route path='/stock' element={ <Guard> <Stock /> </Guard>} />
       <Route path='/sale/cashier' element={ <Guard> <Cashier /> </Guard>} />
+      <Route path='/sale/cashier/checkout' element={ <Guard> <Checkout /> </Guard>} />
     </Routes>
   )
 }
