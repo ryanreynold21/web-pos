@@ -9,7 +9,7 @@ const Media = () => {
   const fileRef = useRef(null);
   const [storePhoto] = useStorePhotoMutation()
   const [page, setPage] = useState(1); // Current page
-  const { data, refetch } = useGetPhotoQuery({ token, page });
+  const { data } = useGetPhotoQuery(token);
 console.log(data)  
   const handleFileChange = async(e) => {
     const selectedFile = e.target.files;
@@ -18,6 +18,7 @@ console.log(data)
       photos.append("photos[]",selectedFile[i],selectedFile[i].name)
     }
     const data = await storePhoto({photos,token});
+    console.log(data)
     };
   
   const handleUpload = async() => {
@@ -50,20 +51,20 @@ console.log(data)
             {data?.data.map(image => <img className=' h-[200px] w-[200px]' src={image.url} alt="" /> )}
          </div>
           {/* Pagination buttons */}
-          <div className="mt-5 flex justify-center">
+          {/* <div className="mt-5 flex justify-center">
             {data?.first && page > 1 && (
-              <button onClick={() => handlePageChange(1)}>First</button>
+              <button className=' text-white font-500 text-xl' onClick={() => handlePageChange(1)}>First</button>
             )}
             {data?.prev && (
-              <button onClick={() => handlePageChange(page - 1)}>Previous</button>
+              <button className=' text-white font-500 text-xl' onClick={() => handlePageChange(page - 1)}>Previous</button>
             )}
             {data?.next && (
-              <button onClick={() => handlePageChange(page + 1)}>Next</button>
+              <button className=' text-white font-500 text-xl' onClick={() => handlePageChange(page + 1)}>Next</button>
             )}
             {data?.last && page < data.last && (
-              <button onClick={() => handlePageChange(data.last)}>Last</button>
+              <button className=' text-white font-500 text-xl' onClick={() => handlePageChange(data.last)}>Last</button>
             )}
-          </div>
+          </div> */}
         </div>
      </div>
     </Rootlayout>

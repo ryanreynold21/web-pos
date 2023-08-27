@@ -5,9 +5,19 @@ import { HiOutlinePhoto } from "react-icons/hi2";
 import { RiEdit2Fill } from "react-icons/ri";
 import Xbox from "../assets/images/XboxSeriesXController_HERO.jpg";
 import Swal from "sweetalert2";
+import { useStoreProductMutation } from "../services/authApi";
 
 const AddProduct = () => {
   const [section, setSection] = useState("info");
+  const [storeProduct] = useStoreProductMutation();
+  const [name,setName] = useState('boot');
+  const [brand_id,setBrand_id] = useState('2');
+  const [actual_price,setActurl_price] = useState('a')
+  const [sale_price,setSale_price] = useState('a')
+  const [total_stock,setTotalStock] = useState('a');
+  const [unit,setUnit] = useState('a');
+  const [more_information,setMoreInformation] = useState('a')
+  const [photo,setPhoto] = useState('a');
   const navigate = useNavigate();
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -18,7 +28,6 @@ const AddProduct = () => {
       showConfirmButton: false,
       timer: 1500
     });
-    navigate("/products");
   };
   return (
     <div>

@@ -1,20 +1,22 @@
-import React, { useState } from "react";
-import Rootlayout from "../layout/Rootlayout";
-import { AiOutlinePlus, AiOutlineOrderedList } from "react-icons/ai";
-import { BsGrid } from "react-icons/bs";
-import ProductTables from "../components/products/ProductTables";
-import ProductCard from "../components/products/ProductCard";
-import { Link } from "react-router-dom";
+import React from 'react'
+import Rootlayout from '../layout/Rootlayout'
+import BrandTable from '../components/brand/BrandTable'
+import { Link } from 'react-router-dom'
+import { AiOutlinePlus } from 'react-icons/ai'
+import AddBrand from '../components/brand/AddBrand'
+import { useState } from 'react'
 
-const Inventory = () => {
-  const [view, setView] = useState("list");
+const ManageBrand = () => {
+  const [showSidebar,setShowSideBar] = useState(false)
+
   return (
     <Rootlayout>
+            {showSidebar && <AddBrand showSidebar={showSidebar} setShowSideBar={setShowSideBar} /> }
       <div className=" mx-10 my-5">
         <div className=" flex justify-between">
           <div className="">
             <h1 className=" text-[20px] font-[500] text-white">Products</h1>
-            <p className=" text-gray-500">Inventory/ Products</p>
+            <p className=" text-gray-500">Inventory/ Brands</p>
           </div>
           <div className=" flex gap-3">
             <Link to={"/"}>
@@ -23,11 +25,11 @@ const Inventory = () => {
                 Go To Shop
               </button>
             </Link>
-            <Link to={"/products/create"}>
-              <button className=" px-4 py-2 rounded-lg flex items-center gap-2 button">
+            <Link to={''}>
+              <button onClick={() => setShowSideBar(true)} className=" px-4 py-2 rounded-lg flex items-center gap-2 button">
                 {" "}
                 <AiOutlinePlus />
-                Add Product
+                Add Brand
               </button>
             </Link>
           </div>
@@ -35,7 +37,7 @@ const Inventory = () => {
         {/* product overview */}
         <div className=" my-5">
           <h1 className="text-[21px] font-[500] text-white">
-            Products Overview
+            Brands Overview
           </h1>
           {/* search */}
           <div className="flex justify-between">
@@ -65,36 +67,13 @@ const Inventory = () => {
                 required
               />
             </div>
-            <div className=" text-white text-[22px]">
-              <button
-                onClick={() => setView("list")}
-                className={`${
-                  view === "list"
-                    ? "border border-[#B19777] text-[#B19777] p-2 mr-5"
-                    : "border border-white p-2 mr-5"
-                }`}
-              >
-                {" "}
-                <AiOutlineOrderedList />{" "}
-              </button>
-              <button
-                onClick={() => setView("grid")}
-                className={`${
-                  view === "grid"
-                    ? "border border-[#B19777] text-[#B19777] p-2 mr-5"
-                    : "border border-white p-2 mr-5"
-                }`}
-              >
-                {" "}
-                <BsGrid />{" "}
-              </button>
-            </div>
           </div>
-          {view === "list" ? <ProductTables /> : <ProductCard />}
+          <BrandTable />
         </div>
       </div>
     </Rootlayout>
-  );
-};
+  )
+}
 
-export default Inventory;
+export default ManageBrand
+

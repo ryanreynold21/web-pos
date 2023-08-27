@@ -37,13 +37,6 @@ export const authApi = createApi({
             }),
             invalidatesTags : ['authapi']
         }),
-        getProduct : build.query({
-            query : ({token}) => ({
-                url : 'product',
-                headers:{authorization:`Bearer ${token}`}
-            }),
-            providesTags : ['authapi']
-        }),
         createUser : build.mutation({
             query : ({userData,token}) => ({
                 url : 'user/register',
@@ -60,13 +53,49 @@ export const authApi = createApi({
             }),
             providesTags : ['authapi']
         }),
+        getProduct : build.query({
+            query : (token) => ({
+                url : 'product',
+                headers:{authorization:`Bearer ${token}`}
+            }),
+            providesTags : ['authapi']
+        }),
+        storeProduct : build.mutation({
+            query : (productData,token) => ({
+                url : 'product',
+                method : "POST",
+                body : productData,
+                headers:{authorization:`Bearer ${token}`}
+            }),
+            providesTags : ['authapi']
+        }),
+        getBrand : build.query({
+            query : (token) => ({
+                url : 'brand',
+                headers:{authorization:`Bearer ${token}`}
+            }),
+            providesTags : ['authapi']
+        }),
+        storeBrand : build.mutation({
+            query : (brandData,token) => ({
+                url : 'brand',
+                method : "POST",
+                body : brandData,
+                headers:{authorization:`Bearer ${token}`}
+            }),
+            providesTags : ['authapi']
+        }),
     }),
 })
 
 export const {useLoginMutation,
-                useLogoutMutation,
-                useGetPhotoQuery,
-                useStorePhotoMutation,
-                useGetProductQuery,
-                useCreateUserMutation,
-                useGetUserQuery} = authApi;
+    useLogoutMutation,
+    useGetPhotoQuery,
+    useStorePhotoMutation,
+    useGetProductQuery,
+    useCreateUserMutation,
+    useStoreProductMutation,
+    useGetUserQuery,
+    useGetBrandQuery,
+    useStoreBrandMutation
+            } = authApi;

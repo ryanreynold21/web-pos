@@ -41,7 +41,9 @@ const Sidebar = () => {
           </div>
           <div className="collapse-content">
             <ul className="text-[18px]">
-              <li className=" text-white ml-10 mb-3">Cashier</li>
+              <NavLink to={"/sale/cashier"}>
+                <li className=" text-white ml-10 mb-3">Cashier</li>
+              </NavLink>
               <li className=" text-white ml-10 mb-3">Recent</li>
             </ul>
           </div>
@@ -65,16 +67,18 @@ const Sidebar = () => {
           </div>
           <div className="collapse-content">
             <ul className="text-[18px]">
-              <NavLink to={'/product'}>
+              <NavLink to={"/products"}>
                 <li className=" text-white ml-10 mb-3">Products</li>
               </NavLink>
               <NavLink to={"/products/create"}>
                 <li className=" text-white ml-10 mb-3">Add Product</li>
               </NavLink>
-              <NavLink to={'/stock'}>
-              <li className=" text-white ml-10 mb-3">Stack Control</li>
-               </NavLink>
-              <li className=" text-white ml-10 mb-3">Manage Brands</li>
+              <NavLink to={"/stock"}>
+                <li className=" text-white ml-10 mb-3">Stock Control</li>
+              </NavLink>
+              <NavLink to={'/brand'}>
+                <li className=" text-white ml-10 mb-3">Manage Brands</li>
+              </NavLink>
             </ul>
           </div>
         </div>
@@ -97,9 +101,9 @@ const Sidebar = () => {
           </div>
           <div className="collapse-content">
             <ul className="text-[18px]">
-              <Link to={"/users"}>
+              <NavLink to={"/users"}>
                 <li className=" text-white ml-10 mb-3">OverView</li>
-              </Link>
+              </NavLink>
               <Link to={"/users/create"}>
                 <li className=" text-white ml-10 mb-3">Create User</li>
               </Link>

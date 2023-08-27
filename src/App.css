@@ -33,3 +33,11 @@
   justify-content: center;
 }
 
+.number-btn{
+  border-top: 1px solid #B19777;
+  border-right: 1px solid #B19777;
+}
+
+.prodInCartActive{
+  background-color: #323232;
+}

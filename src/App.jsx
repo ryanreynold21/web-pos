@@ -14,6 +14,8 @@ import AddProduct from './pages/AddProduct'
 import Inventory from './pages/Inventory'
 import ProductDetails from './components/products/ProductDetails'
 import Stock from './pages/Stock'
+import Cashier from './pages/Cashier'
+import ManageBrand from './pages/ManageBrand'
 
 const App = () => {
   return (
@@ -25,10 +27,12 @@ const App = () => {
       <Route path='/profile/edit' element={ <Guard> <EditProfile /> </Guard> } />
       <Route path='/users' element={<Guard> <User /> </Guard>} />
       <Route path='/users/create' element={<Guard> <CreateUser /> </Guard>} />
-      <Route path='/product' element={<Guard> <Inventory /> </Guard>} />
+      <Route path='/products' element={<Guard> <Inventory /> </Guard>} />
       <Route path='/products/create' element={<Guard> <AddProduct /> </Guard>} />
-      <Route path='/product/details' element={<Guard> <ProductDetails /> </Guard>} />
+      <Route path='/products/details' element={<Guard> <ProductDetails /> </Guard>} />
       <Route path='/stock' element={ <Guard> <Stock /> </Guard>} />
+      <Route path='/sale/cashier' element={ <Guard> <Cashier /> </Guard>} />
+      <Route path='/brand' element={ <Guard> <ManageBrand /> </Guard>} />
     </Routes>
   )
 }
