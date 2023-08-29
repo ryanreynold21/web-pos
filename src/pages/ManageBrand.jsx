@@ -5,13 +5,17 @@ import { Link } from 'react-router-dom'
 import { AiOutlinePlus } from 'react-icons/ai'
 import AddBrand from '../components/brand/AddBrand'
 import { useState } from 'react'
+import ModalPhoto from '../components/ModalPhoto'
 
 const ManageBrand = () => {
   const [showSidebar,setShowSideBar] = useState(false)
+  const [showPhotoModal,setShowPhotoModal] = useState(false)
 
   return (
     <Rootlayout>
-            {showSidebar && <AddBrand showSidebar={showSidebar} setShowSideBar={setShowSideBar} /> }
+            {showSidebar && <AddBrand showPhotoModal={showPhotoModal} setShowPhotoModal={setShowPhotoModal} showSidebar={showSidebar} setShowSideBar={setShowSideBar} /> }
+            {showPhotoModal ? (<ModalPhoto setShowPhotoModal={setShowPhotoModal} showPhotoModal={showPhotoModal} />) : '' }
+
       <div className=" mx-10 my-5">
         <div className=" flex justify-between">
           <div className="">

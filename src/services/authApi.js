@@ -77,7 +77,7 @@ export const authApi = createApi({
             providesTags : ['authapi']
         }),
         storeBrand : build.mutation({
-            query : (brandData,token) => ({
+            query : ({brandData,token}) => ({
                 url : 'brand',
                 method : "POST",
                 body : brandData,

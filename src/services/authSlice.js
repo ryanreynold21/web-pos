@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     user : null,
     token : null,
+    photo : '',
 }
 
 export const authSlice = createSlice({
@@ -21,7 +22,6 @@ export const authSlice = createSlice({
             localStorage.removeItem('user'),
             localStorage.removeItem('token')
         },
-    
     }
 });
 
