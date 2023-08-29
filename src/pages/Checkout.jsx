@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../layout/Navbar";
 import { BiArrowBack } from "react-icons/bi";
-import "./checkout.css";
+import "./Checkout.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Checkout = () => {
