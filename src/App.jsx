@@ -15,6 +15,7 @@ import Inventory from './pages/Inventory'
 import ProductDetails from './components/products/ProductDetails'
 import Stock from './pages/Stock'
 import Cashier from './pages/Cashier'
+import Checkout from './pages/Checkout'
 import ManageBrand from './pages/ManageBrand'
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
       <Route path='/products/details' element={<Guard> <ProductDetails /> </Guard>} />
       <Route path='/stock' element={ <Guard> <Stock /> </Guard>} />
       <Route path='/sale/cashier' element={ <Guard> <Cashier /> </Guard>} />
+      <Route path='/checkout' element={ <Guard> <Checkout /> </Guard>} />
       <Route path='/brand' element={ <Guard> <ManageBrand /> </Guard>} />
     </Routes>
   )
