@@ -72,7 +72,7 @@ const Checkout = () => {
             </div>
             <div className=" flex justify-center">
               <button
-                className="bg-[#B19777] text-white rounded-lg w-3/4 py-2"
+                className="bg-[#B19777] text-white rounded-lg w-3/4 py-2 print:hidden"
                 onClick={handlePrint}
               >
                 Print
